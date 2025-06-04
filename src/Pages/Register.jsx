@@ -4,7 +4,7 @@ import { RegisterContext } from "../Contexts/RegisterContext";
 import { courses } from "../Data/courses";
 import { useNavigate } from "react-router-dom";
 
-export function Register() {
+function Register() {
   const { addRegistration } = useContext(RegisterContext);
   const navigate = useNavigate();
 
@@ -74,3 +74,4 @@ export function Register() {
     </div>
   );
 }
+export default Register;

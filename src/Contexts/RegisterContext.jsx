@@ -7,7 +7,7 @@ import { createContext, useState } from "react";
 
 export const RegisterContext = createContext();
 
-export function RegisterProvider({ children }) {
+function RegisterProvider({ children }) {
   const [registrations, setRegistrations] = useState([]);
 
   const addRegistrations = (registration) => {
@@ -19,3 +19,4 @@ export function RegisterProvider({ children }) {
     </RegisterContext.Provider>
   );
 }
+export default RegisterProvider;
