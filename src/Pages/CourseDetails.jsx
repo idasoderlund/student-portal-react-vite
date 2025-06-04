@@ -3,7 +3,7 @@ import { courses } from "../Data/courses";
 
 function CourseDetails() {
   const { id } = useParams();
-  const course = course.find((c) => c.id === parseInt(id));
+  const course = courses.find((c) => c.id === parseInt(id));
 
   if (!course) {
     return <p>Course could not be found.</p>;
