@@ -10,7 +10,7 @@ function App() {
   return (
     <Router>
       <Navbar />
-      <div className="path-container">
+      <div className="container mt-3">
         <Route Path="/" element={<Home />} />
         <Route Path="/courses" element={<Courses />} />
         <Route Path="/courses/:id" element={<CourseDetails />} />
