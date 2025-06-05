@@ -1,7 +1,7 @@
 import { Card, Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-function CourseCrad({ course }) {
+function CourseCard({ course }) {
   return (
     <Card>
       <Card.Body>
@@ -14,4 +14,4 @@ function CourseCrad({ course }) {
     </Card>
   );
 }
-export default CourseCrad;
+export default CourseCard;

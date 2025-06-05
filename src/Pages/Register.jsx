@@ -1,11 +1,25 @@
-import { useState, useContext } from "react";
-import { TextField, Button, MenuItem } from "@mui/material";
-import { RegisterContext } from "../Contexts/RegisterContext";
-import { courses } from "../Data/courses";
+import { TextField, MenuItem, Button } from "@mui/material";
+import { useContext } from "react";
+import { RegisterContext } from "../Components/RegisterForm";
 import { useNavigate } from "react-router-dom";
+import { courses } from "../Data/courses";
+import { useState } from "react";
 
-function Register() {
-  const { addRegistration } = useContext(RegisterContext);
+export function RegisterProvider({ children }) {
+  const [registrations, setRegistrations] = useState([]);
+
+  const addRegistrations = (registration) => {
+    setRegistrations([...registrations, registration]);
+  };
+  return (
+    <RegisterContext.Provider value={{ registrations, addRegistrations }}>
+      {children}
+    </RegisterContext.Provider>
+  );
+}
+
+export default function Register() {
+  const { addRegistrations } = useContext(RegisterContext);
   const navigate = useNavigate();
 
   const [name, setName] = useState("");
@@ -19,7 +33,7 @@ function Register() {
       email,
       courseId,
     };
-    addRegistration(registration);
+    addRegistrations(registration);
     alert("Registration is saved!");
     navigate("/");
   };
@@ -34,7 +48,7 @@ function Register() {
           margin="normal"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          reguired
+          required
         />
 
         <TextField
@@ -44,17 +58,17 @@ function Register() {
           margin="normal"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          reguired
+          required
         />
 
         <TextField
           select
-          label="CHoose course"
+          label="Choose course"
           fullWidth
           margin="normal"
           value={courseId}
           onChange={(e) => setCourseId(e.target.value)}
-          reguired
+          required
         >
           {courses.map((course) => (
             <MenuItem key={course.id} value={course.id}>
@@ -74,4 +88,3 @@ function Register() {
     </div>
   );
 }
-export default Register;

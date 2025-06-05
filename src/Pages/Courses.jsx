@@ -1,9 +1,8 @@
 import { courses } from "../Data/courses";
 import CourseCard from "../Components/CourseCard";
 import { Row, Col } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
-function Courses() {
+export function Courses() {
   return (
     <>
       <h2>Courses</h2>
@@ -17,4 +16,3 @@ function Courses() {
     </>
   );
 }
-export default Courses;

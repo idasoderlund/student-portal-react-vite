@@ -1,7 +1,7 @@
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
-function NavigationBar() {
+function NavBar() {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -30,4 +30,4 @@ function NavigationBar() {
     </Navbar>
   );
 }
-export default NavigationBar;
+export default NavBar;
